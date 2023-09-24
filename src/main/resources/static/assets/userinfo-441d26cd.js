@@ -1,0 +1,1 @@
+import{r}from"./request-d319ce4c.js";const o=()=>r.get("/server/user/info"),t=e=>r.post("/server/user/info",e),a=e=>r.post("/server/upload",e),n=e=>r.get(`/server/user/info/${e}`);export{t as a,o as b,n as g,a as u};

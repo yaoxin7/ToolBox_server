@@ -1,0 +1,1 @@
+import{r as s}from"./request-d319ce4c.js";const t="/assets/vite-4a748afd.svg",a=({username:r,password:e})=>s.post("/server/login",{username:r,password:e}),v=r=>s.post("/server/reg",r),g=()=>s.put("server/logout");export{t as _,g as a,a as l,v as r};

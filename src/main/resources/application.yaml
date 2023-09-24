@@ -1,0 +1,23 @@
+server:
+  port: 80
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 3096828266
+    url: jdbc:mysql:///web_sql
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
+mybatis-plus:
+  type-aliases-package: com.yao.toolbox.pojo
+
+  global-config:
+    db-config:
+      id-type: AUTO
+
+storage:
+  location-root: D:\upload\
+
