@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace：对应的Mapper接口类-->
+<mapper namespace="com.yao.toolbox.mapper.MenuMapper">
+    <!--id：与接口类中的方法名一致 resultType：返回结果的类型（基本类型）-->
+    <select id="getPermsByUserId" resultType="string">
+        <!--sql语句-->
+        select menu.perms from menu
+        join role_menu rm on menu.menu_id = rm.menu_id
+        join menu m on rm.menu_id = m.menu_id
+        join user_role ur on rm.role_id = ur.role_id
+        where ur.user_id = #{userId}
+    </select>
+</mapper>

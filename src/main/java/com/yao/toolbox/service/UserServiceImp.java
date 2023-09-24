@@ -62,4 +62,11 @@ public class UserServiceImp extends ServiceImpl<UserMapper, User> implements Use
     public boolean updateEmail(User user) {
         return false;
     }
+
+    @Override
+    public User getUserByUsername(String username) {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("username", username);
+        return userMapper.selectOne(wrapper);
+    }
 }

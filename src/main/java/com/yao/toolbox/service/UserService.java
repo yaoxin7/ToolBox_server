@@ -15,4 +15,6 @@ public interface UserService extends IService<User> {
 
     public boolean updateEmail(User user);
 
+    public User getUserByUsername(String username);
+
 }

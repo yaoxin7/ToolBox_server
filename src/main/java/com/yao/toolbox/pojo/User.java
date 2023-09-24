@@ -2,12 +2,14 @@ package com.yao.toolbox.pojo;
 
 import com.yao.toolbox.enums.Role;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /*
 * TODO: 1. 用户实体类
+*  可序列化
 * */
-public class User {
+public class User implements Serializable {
 
     private Long id;
 
