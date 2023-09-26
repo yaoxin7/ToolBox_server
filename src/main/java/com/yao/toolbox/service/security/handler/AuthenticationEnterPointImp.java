@@ -18,7 +18,7 @@ public class AuthenticationEnterPointImp implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         response.setStatus(401);
         ResponseMessage<String> message =
-                new ResponseMessage<>(401, "权限不足", null);
+                new ResponseMessage<>(2, "登录验证失败", null);
         String jsonString = JSON.toJSONString(message);
         WebUtils.print(response, jsonString);
     }

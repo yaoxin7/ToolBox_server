@@ -9,7 +9,9 @@ import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /*
 * TODO: 1. 支持跨域请求, 允许携带cookie
@@ -84,6 +86,26 @@ public class UserInfoController {
         else
             response = new ResponseMessage<>(0, "获取用户信息成功", userInfo);
         return response;
+    }
+
+    /*
+    * TODO 修改用户密码
+    *  1. 请求地址： /server/user/info/password
+    *  2. 请求方式：post
+    *  3. 请求参数
+    *      {
+    *         "old_password": XXX,
+    *         "new_password": XXX
+    *      }
+    * */
+    @PostMapping("/password")
+    public ResponseMessage<String> changeUserPassword(HttpServletRequest request, @RequestBody Map<String, String> req) {
+
+        boolean bool = userService.passwordService(request, req.get("old_password"), req.get("new_password"));
+        if (bool)
+            return new ResponseMessage<>(0, "修改密码成功");
+        else return new ResponseMessage<>(1, "请检查密码是否正确");
+
     }
 
 

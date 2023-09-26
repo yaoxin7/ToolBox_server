@@ -20,7 +20,7 @@ public class AccessDeniedHandlerImp implements AccessDeniedHandler {
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
         response.setStatus(401);
         ResponseMessage<String> message =
-                new ResponseMessage<>(401, "登录验证失败", null);
+                new ResponseMessage<>(401, "权限不足", null);
         String jsonString = JSON.toJSONString(message);
         WebUtils.print(response, jsonString);
     }

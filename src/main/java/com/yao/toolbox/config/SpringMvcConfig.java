@@ -31,7 +31,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // 允许跨域访问的路径
-                .allowedOrigins("http://localhost:5173") // 允许跨域访问的源
+                .allowedOrigins("http://localhost","http://localhost:5173", "http://192.168.137.1") // 允许跨域访问的源
                 .allowCredentials(true)// 是否发送cookie
                 .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE") // 允许请求方法
                 .maxAge(168000) // 预检间隔时间
